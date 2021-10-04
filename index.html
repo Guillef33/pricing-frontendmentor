@@ -26,14 +26,16 @@
   <div class="card">
 
     <div class="card-title">
-      <h3>100 K pageviews</h3>
-      <span id="value">/month</span>
+      <h3 id="views">10K pageviews</h3>
+      <div>
+        <span id="value" style="display: inline-block;">8</span><span id="dateFee" style="display: inline-block;">/month</span>
+      </div>
    <!-- <span id="outputVar"></span> -->
     </div>
     <div class="range-slider">
-        <input type="range" min="1" max="50" value="16" class="sliderPrice" id="myRange">
+        <input type="range" min="0" max="4" step="1" value="0" class="sliderPrice" id="myRange">
     </div>
-    <div class="toggleBilling"">
+    <div class="toggleBilling">
       <p>Monthly Billing</p>
       <label class="switch">
         <input type="checkbox" id="toggleSelect">
@@ -67,26 +69,49 @@
   </div>
 
   <script>
+    let toggleSwitch = 0;
     let slider = document.getElementById("myRange");
+    let views = document.getElementById("views");
+    let dateFee = document.getElementById("dateFee");
+
+
     let output = document.getElementById("value");
     let outputVarNo = document.getElementById("outputVar");
     let toggleSelect = document.getElementById('toggleSelect');
     let discountYear = document.getElementById('discount');
 
-    const sliderOk = parseInt(slider.value,10);
+    let arrayFee = [8,12,16,24,36];
+    let arrayView = ["10K","50K","100K","500K","1M"];
 
+    const sliderOk = parseInt(slider.value,10);
     console.log(sliderOk);
 
-    let update = () => 
+
+    let updateFee = () => 
     output.innerHTML = 
-    `<h2 class="priceValue">$ ${slider.value} <span>/month</span>`;
-    
-    slider.addEventListener('input', update);
-    update();
+    `<h2 class="priceValue">$ ${arrayFee[slider.value]}`;
+
+    let updateView = () => 
+    views.innerHTML = ` ${arrayView[slider.value]} PAGEVIEWS`;
+
+    slider.addEventListener('input', function(){
+      updateFee();
+      updateView();
+    });
+
 
     /* Intento seleccionar el valor del input */
     toggleSelect.addEventListener('change', function() {
-      console.log('Seleccionaste: ', this.value);
+      if (toggleSwitch == 0) {
+        toggleSwitch = 1;
+        dateFee.innerHTML = "/yearly";
+        
+      }
+      else{
+        toggleSwitch = 0;
+      }
+
+      console.log('Seleccionaste: ', toggleSwitch);
     });
 
     /* Si se selecciona Year, entonces mostrar el texto de descuento */
