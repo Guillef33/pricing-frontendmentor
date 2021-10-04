@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive pricing component</title>
+  <link rel="stylesheet" href="switch.css">
+  <link rel="stylesheet" href="slider.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="title-wrapper"> 
+    <h1>Simple, traffic-based pricing</h1>
+    <h4>Sign-up for our 30-day trial. No credit card required.</h4>
+  </div>
+
+  <div class="card">
+
+    <div class="card-title">
+      <h3>100 K pageviews</h3>
+      <span id="value">/month</span>
+   <!-- <span id="outputVar"></span> -->
+    </div>
+    <div class="range-slider">
+        <input type="range" min="1" max="50" value="16" class="sliderPrice" id="myRange">
+    </div>
+    <div class="toggleBilling"">
+      <p>Monthly Billing</p>
+      <label class="switch">
+        <input type="checkbox" id="toggleSelect">
+        <span class="slider round"></span>
+      </label>
+      <p>Yearly Billing</p>
+      <p id="discount">25% discount </p>
+    </div>
+    <div class="trialBenefits">
+      <div class="list">
+        <ul>       
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="9" height="8"><path fill="none" stroke="#10D8C4" stroke-width="2" d="M1 4.134l1.907 1.908L7.949 1"/></svg> Unlimited websites</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="9" height="8"><path fill="none" stroke="#10D8C4" stroke-width="2" d="M1 4.134l1.907 1.908L7.949 1"/></svg> 100% data ownership</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="9" height="8"><path fill="none" stroke="#10D8C4" stroke-width="2" d="M1 4.134l1.907 1.908L7.949 1"/></svg> Email reports</li>
+        </ul>
+      </div>
+      <div id="trial-button">
+        <button>Start My Trial</button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  <script>
+    let slider = document.getElementById("myRange");
+    let output = document.getElementById("value");
+    let outputVarNo = document.getElementById("outputVar");
+    let toggleSelect = document.getElementById('toggleSelect');
+    let discountYear = document.getElementById('discount');
+
+    const sliderOk = parseInt(slider.value,10);
+
+    console.log(sliderOk);
+
+    let update = () => 
+    output.innerHTML = 
+    `<h2 class="priceValue">$ ${slider.value} <span>/month</span>`;
+    
+    slider.addEventListener('input', update);
+    update();
+
+    /* Intento seleccionar el valor del input */
+    toggleSelect.addEventListener('change', function() {
+      console.log('Seleccionaste: ', this.value);
+    });
+
+    /* Si se selecciona Year, entonces mostrar el texto de descuento */
+    if (toggleSelect == 'Yearly') {
+      discountYear.style.display = 'block';
+    } 
+
+  </script> 
+</body>
+</html>

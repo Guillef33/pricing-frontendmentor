@@ -1,0 +1,105 @@
+
+    :root {
+        --fondo:  hsl(174, 77%, 80%);
+        --fondo-body:  hsl(230, 100%, 99%);
+        --pricing-bg: hsl(0, 0%, 100%);
+        --fondo-component:  hsl(14, 92%, 95%);
+        --pale-blue: hsl(226, 100%, 87%);
+        --button:  hsl(227, 35%, 25%);
+      }
+  
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+  
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; 
+      }
+  
+      body {
+        background-color: var(--pale-blue);
+        font-family: 'Manrope', sans-serif;
+      }
+  
+      .container {
+        margin: 50px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        justify-content: center;
+        align-items: center;
+        background-image: url('img/bg.pattern.svg');
+        background-size: cover;
+        background-color: lightblue;
+      }
+  
+      .card {
+        padding: 50px;
+        width: 600px;
+        background-color: var(--fondo-body);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 400px;
+      }
+  
+      .card-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      .card-title h3 {
+        text-transform: uppercase;
+        color: gray;
+        font-size: 14px;
+      }
+  
+      .title-wrapper h1 {
+        font-size: 24px;
+      }
+  
+      .title-wrapper h4 {
+        font-size: 20px;
+        color: gray;
+      } 
+  
+      
+      .trialBenefits {
+        display: flex;
+        justify-content: space-between;
+      }
+  
+      .trialBenefits ul {
+       list-style: none;
+       text-align: left;
+      }
+  
+      .trialBenefits li {
+       font-size: 12px;
+       color: gray;
+      }
+  
+  
+      .trialBenefits button {
+        color: white;
+        background-color: var(--button);
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: none;
+      }
+  
+      .priceValue {
+        font-size: 30px;
+        color: var(--button);
+      }
+  
+      .priceValue span {
+        font-size: 16px;
+        color: gray;
+      }
+  
+    
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
